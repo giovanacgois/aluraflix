@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class VideoMapper {
 
-    private static VideoResponse fromDomainToResponse(Video video) {
+    public static VideoResponse fromDomainToResponse(Video video) {
         return VideoResponse.builder()
                 .titulo(video.getTitulo())
                 .descricao(video.getDescricao())
