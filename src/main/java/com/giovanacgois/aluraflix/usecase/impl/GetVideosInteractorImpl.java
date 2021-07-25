@@ -1,6 +1,7 @@
-package com.giovanacgois.aluraflix.usecase;
+package com.giovanacgois.aluraflix.usecase.impl;
 
 import com.giovanacgois.aluraflix.infrastructure.VideoRepository;
+import com.giovanacgois.aluraflix.usecase.GetVideosInteractor;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.VideoMapper;
 import org.springframework.beans.factory.annotation.Autowired;

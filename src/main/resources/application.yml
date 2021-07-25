@@ -1,3 +1,6 @@
+server:
+  error:
+    include-message: always
 spring:
   data:
     mongodb:
