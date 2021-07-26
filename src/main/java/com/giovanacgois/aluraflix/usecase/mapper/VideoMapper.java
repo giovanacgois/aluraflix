@@ -1,6 +1,7 @@
 package com.giovanacgois.aluraflix.usecase.mapper;
 
 import com.giovanacgois.aluraflix.domain.Video;
+import com.giovanacgois.aluraflix.usecase.dto.VideoRequest;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
 import lombok.experimental.UtilityClass;
 
@@ -14,10 +15,19 @@ public class VideoMapper {
         return VideoResponse.builder()
                 .titulo(video.getTitulo())
                 .descricao(video.getDescricao())
+                .url(video.getUrl())
                 .build();
     }
 
     public static List<VideoResponse> fromDomainToResponse(List<Video> videos) {
-        return videos.stream().map(video -> fromDomainToResponse(video)).collect(Collectors.toList());
+        return videos.stream().map(VideoMapper::fromDomainToResponse).collect(Collectors.toList());
+    }
+
+    public static Video fromRequestToDomain(VideoRequest video) {
+        return Video.builder()
+                .titulo(video.getTitulo())
+                .descricao(video.getDescricao())
+                .url(video.getUrl())
+                .build();
     }
 }
