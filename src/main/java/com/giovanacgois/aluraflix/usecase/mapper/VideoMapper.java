@@ -13,6 +13,7 @@ public class VideoMapper {
 
     public static VideoResponse fromDomainToResponse(Video video) {
         return VideoResponse.builder()
+                .id(video.getId().toString())
                 .titulo(video.getTitulo())
                 .descricao(video.getDescricao())
                 .url(video.getUrl())

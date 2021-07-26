@@ -1,9 +1,6 @@
 package com.giovanacgois.aluraflix.entrypoint;
 
-import com.giovanacgois.aluraflix.usecase.GetVideoByIdInteractor;
-import com.giovanacgois.aluraflix.usecase.GetVideosInteractor;
-import com.giovanacgois.aluraflix.usecase.SaveVideoInteractor;
-import com.giovanacgois.aluraflix.usecase.impl.UpdateVideoInteractorImpl;
+import com.giovanacgois.aluraflix.usecase.*;
 import com.giovanacgois.aluraflix.usecase.dto.VideoRequest;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +17,14 @@ public class VideoController {
 
     @Autowired
     GetVideosInteractor getVideosInteractor;
-
     @Autowired
     GetVideoByIdInteractor getVideoByIdInteractor;
-
     @Autowired
     SaveVideoInteractor saveVideoInteractor;
-
     @Autowired
-    UpdateVideoInteractorImpl updateVideoInteractor;
+    UpdateVideoInteractor updateVideoInteractor;
+    @Autowired
+    RemoveVideoInteractor removeVideoInteractor;
 
     @GetMapping
     public List<VideoResponse> getVideos() {
@@ -56,4 +52,9 @@ public class VideoController {
         return updateVideoInteractor.execute(id, video);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeVideo(@PathVariable("id") String id) {
+        removeVideoInteractor.execute(id);
+    }
 }

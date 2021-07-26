@@ -3,7 +3,6 @@ package com.giovanacgois.aluraflix.usecase.dto;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
