@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "6d9ae34c-b998-4327-99b8-b174c5b6353a",
+		"name": "AluraFlix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL VIDEOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/videos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET VIDEO BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/videos/60fdec797fd1e6594a826518",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos",
+						"60fdec797fd1e6594a826518"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODIFY VIDEO BY ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"cadeira\",\r\n    \"descricao\": \"mesa\",\r\n    \"url\": \"moveis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/videos/60fdec797fd1e6594a826518",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos",
+						"60fdec797fd1e6594a826518"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REMOVE VIDEO BY ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"cadeira\",\r\n    \"descricao\": \"mesa\",\r\n    \"url\": \"moveis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/videos/60fdec797fd1e6594a826518",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videos",
+						"60fdec797fd1e6594a826518"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,9 @@
+server:
+  error:
+    include-message: always
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      auto-index-creation: true
+      uri: mongodb://root:pass12345@localhost:27017/aluraflix
