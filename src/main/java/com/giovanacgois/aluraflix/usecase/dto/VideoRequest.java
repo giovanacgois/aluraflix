@@ -11,10 +11,13 @@ import javax.validation.constraints.NotNull;
 @NotEmpty
 @NotNull
 public class VideoRequest {
-    @NotEmpty @NotNull
+    @NotEmpty(message = "O campo 'titulo' não pode ser vazio.")
+    @NotNull(message = "O campo 'titulo' não pode ser nulo.")
     private String titulo;
-    @NotEmpty @NotNull
+    @NotEmpty(message = "O campo 'descricao' não pode ser vazio.")
+    @NotNull(message = "O campo 'descricao' não pode ser nulo.")
     private String descricao;
-    @NotEmpty @NotNull
+    @NotEmpty(message = "O campo 'url' não pode ser vazio.")
+    @NotNull(message = "O campo 'url' não pode ser nulo.")
     private String url;
 }

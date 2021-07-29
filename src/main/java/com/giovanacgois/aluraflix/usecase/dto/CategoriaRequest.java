@@ -8,13 +8,11 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
-@NotEmpty
-@NotNull
 public class CategoriaRequest {
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "O campo 'titulo' não pode ser vazio")
+    @NotNull(message = "O campo 'titulo' não pode ser nulo.")
     private String titulo;
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "O campo 'cor' não pode ser vazio.")
+    @NotNull(message = "O campo 'cor' não pode ser nulo.")
     private String cor;
 }
