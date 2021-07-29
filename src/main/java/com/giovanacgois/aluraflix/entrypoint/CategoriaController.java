@@ -22,6 +22,8 @@ public class CategoriaController {
     SaveCategoriaInteractor saveCategoriaInteractor;
     @Autowired
     RemoveCategoriaInteractor removeCategoriaInteractor;
+    @Autowired
+    private UpdateCategoriaInteractor updateCategoriaInteractor;
 
     @GetMapping("/")
     private List<CategoriaResponse> getAllCategorias() {
@@ -37,6 +39,13 @@ public class CategoriaController {
     private CategoriaResponse saveCategoria(@Valid @RequestBody CategoriaRequest categoriaRequest) {
         return CategoriaMapper.fromDomainToResponse(saveCategoriaInteractor.execute(categoriaRequest));
     }
+
+    @PutMapping("/{id}")
+    private CategoriaResponse saveCategoria(@PathVariable("id") String id,
+                                            @Valid @RequestBody CategoriaRequest categoriaRequest) {
+        return updateCategoriaInteractor.execute(id, categoriaRequest);
+    }
+
 
     @DeleteMapping("/{id}")
     private void removeCategoria(@PathVariable("id") String id) {
