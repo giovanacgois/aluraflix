@@ -1,8 +1,6 @@
 package com.giovanacgois.aluraflix.entrypoint;
 
-import com.giovanacgois.aluraflix.usecase.GetCategoriasByIdInteractor;
-import com.giovanacgois.aluraflix.usecase.GetCategoriasInteractor;
-import com.giovanacgois.aluraflix.usecase.SaveCategoriaInteractor;
+import com.giovanacgois.aluraflix.usecase.*;
 import com.giovanacgois.aluraflix.usecase.dto.CategoriaRequest;
 import com.giovanacgois.aluraflix.usecase.dto.CategoriaResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.CategoriaMapper;
@@ -22,6 +20,8 @@ public class CategoriaController {
     GetCategoriasByIdInteractor getCategoriasByIdInteractor;
     @Autowired
     SaveCategoriaInteractor saveCategoriaInteractor;
+    @Autowired
+    RemoveCategoriaInteractor removeCategoriaInteractor;
 
     @GetMapping("/")
     private List<CategoriaResponse> getAllCategorias() {
@@ -36,5 +36,10 @@ public class CategoriaController {
     @PostMapping("/")
     private CategoriaResponse saveCategoria(@Valid @RequestBody CategoriaRequest categoriaRequest) {
         return CategoriaMapper.fromDomainToResponse(saveCategoriaInteractor.execute(categoriaRequest));
+    }
+
+    @DeleteMapping("/{id}")
+    private void removeCategoria(@PathVariable("id") String id) {
+        removeCategoriaInteractor.execute(id);
     }
 }
