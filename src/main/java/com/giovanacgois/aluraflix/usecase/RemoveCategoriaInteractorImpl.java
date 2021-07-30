@@ -1,12 +1,14 @@
 package com.giovanacgois.aluraflix.usecase;
 
 import com.giovanacgois.aluraflix.infrastructure.CategoriaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class RemoveCategoriaInteractorImpl implements RemoveCategoriaInteractor {
 
-    @Autowired
-    CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Override
     public void execute(String id) {

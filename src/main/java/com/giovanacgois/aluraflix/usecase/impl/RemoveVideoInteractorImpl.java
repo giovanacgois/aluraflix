@@ -2,14 +2,14 @@ package com.giovanacgois.aluraflix.usecase.impl;
 
 import com.giovanacgois.aluraflix.infrastructure.VideoRepository;
 import com.giovanacgois.aluraflix.usecase.RemoveVideoInteractor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class RemoveVideoInteractorImpl implements RemoveVideoInteractor {
 
-    @Autowired
-    VideoRepository videoRepository;
+    private final VideoRepository videoRepository;
 
     @Override
     public void execute(String id) {

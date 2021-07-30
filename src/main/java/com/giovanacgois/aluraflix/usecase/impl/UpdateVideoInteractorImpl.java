@@ -6,8 +6,8 @@ import com.giovanacgois.aluraflix.usecase.UpdateVideoInteractor;
 import com.giovanacgois.aluraflix.usecase.dto.VideoRequest;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.VideoMapper;
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,10 +15,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UpdateVideoInteractorImpl implements UpdateVideoInteractor {
 
-    @Autowired
-    VideoRepository videoRepository;
+    private final VideoRepository videoRepository;
 
     public VideoResponse execute(String id, VideoRequest video) {
 
