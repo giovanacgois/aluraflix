@@ -6,16 +6,19 @@ import com.giovanacgois.aluraflix.usecase.UpdateCategoriaInteractor;
 import com.giovanacgois.aluraflix.usecase.dto.CategoriaRequest;
 import com.giovanacgois.aluraflix.usecase.dto.CategoriaResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.CategoriaMapper;
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class UpdateCategoriaInteractorImpl implements UpdateCategoriaInteractor {
-    @Autowired
-    private CategoriaRepository categoriaRepository;
+
+    private final CategoriaRepository categoriaRepository;
 
     @Override
     public CategoriaResponse execute(String id, CategoriaRequest categoriaRequest) {

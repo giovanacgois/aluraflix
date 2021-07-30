@@ -3,7 +3,7 @@ package com.giovanacgois.aluraflix.entrypoint;
 import com.giovanacgois.aluraflix.usecase.*;
 import com.giovanacgois.aluraflix.usecase.dto.VideoRequest;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,18 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/videos")
+@RequiredArgsConstructor
 public class VideoController {
 
-    @Autowired
-    GetVideosInteractor getVideosInteractor;
-    @Autowired
-    GetVideoByIdInteractor getVideoByIdInteractor;
-    @Autowired
-    SaveVideoInteractor saveVideoInteractor;
-    @Autowired
-    UpdateVideoInteractor updateVideoInteractor;
-    @Autowired
-    RemoveVideoInteractor removeVideoInteractor;
+    private final GetVideosInteractor getVideosInteractor;
+    private final GetVideoByIdInteractor getVideoByIdInteractor;
+    private final SaveVideoInteractor saveVideoInteractor;
+    private final UpdateVideoInteractor updateVideoInteractor;
+    private final RemoveVideoInteractor removeVideoInteractor;
 
     @GetMapping
     public List<VideoResponse> getVideos() {

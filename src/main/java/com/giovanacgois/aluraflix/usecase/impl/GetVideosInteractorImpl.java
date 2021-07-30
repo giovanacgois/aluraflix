@@ -4,16 +4,16 @@ import com.giovanacgois.aluraflix.infrastructure.VideoRepository;
 import com.giovanacgois.aluraflix.usecase.GetVideosInteractor;
 import com.giovanacgois.aluraflix.usecase.dto.VideoResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.VideoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class GetVideosInteractorImpl implements GetVideosInteractor {
 
-    @Autowired
-    VideoRepository videoRepository;
+    private final VideoRepository videoRepository;
 
     @Override
     public List<VideoResponse> execute() {

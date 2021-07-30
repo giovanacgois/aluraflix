@@ -9,7 +9,9 @@ O desafio é agnóstico com relação à linguagens, frameworks, bases de dados 
 
 Para este projeto, escolhi utilizar:
 
-* Java com Spring;
+* Java
+* Spring
+* Lombok
 * Banco de dados não-relacional MongoDB;
 * Docker;
 * Arquitetura Clean Architecture (para fins de estudos);

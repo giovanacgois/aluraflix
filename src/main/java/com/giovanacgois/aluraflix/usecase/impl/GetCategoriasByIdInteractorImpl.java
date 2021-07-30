@@ -5,7 +5,7 @@ import com.giovanacgois.aluraflix.infrastructure.CategoriaRepository;
 import com.giovanacgois.aluraflix.usecase.GetCategoriasByIdInteractor;
 import com.giovanacgois.aluraflix.usecase.dto.CategoriaResponse;
 import com.giovanacgois.aluraflix.usecase.mapper.CategoriaMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,10 +13,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class GetCategoriasByIdInteractorImpl implements GetCategoriasByIdInteractor {
 
-    @Autowired
-    CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Override
     public CategoriaResponse execute(String id) {
